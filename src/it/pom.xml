@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+
+    <!--TODO It can be automated to clean directories, verify, etc. But for now is just to check manually until I have time -->
+    <groupId>org.franjavi</groupId>
+    <artifactId>install-if-not-exist-it</artifactId>
+    <version>0.1-SNAPSHOT</version>
+
+    <!--<distributionManagement>
+        <repository>
+            <id>releases</id>
+            <url>http://XXX/repository/maven-releases</url>
+        </repository>
+        <snapshotRepository>
+            <id>snapshots</id>
+            <url>http://XXX/repository/maven-snapshots</url>
+            <uniqueVersion>false</uniqueVersion>
+        </snapshotRepository>
+    </distributionManagement>-->
+
+    <build>
+        <plugins>
+
+            <plugin>
+                <groupId>org.franjavi</groupId>
+                <artifactId>install-if-not-exist</artifactId>
+                <version>1.0-SNAPSHOT</version>
+                <configuration>
+                    <file>${project.basedir}/src/main/resources/dummy.jar</file>
+                    <groupId>com.project</groupId>
+                    <artifactId>artifactName</artifactId>
+                    <classifier>optionalSample</classifier>
+                    <version>2.0-SNAPSHOT</version>
+                </configuration>
+                <executions>
+                    <execution>
+                        <phase>install</phase>
+                        <goals>
+                            <goal>install-file-if-not-exist</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+        </plugins>
+
+    </build>
+
+</project>
